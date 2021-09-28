@@ -1,3 +1,4 @@
+![Metrics](https://metrics.lecoq.io/bryanwills)
 <!-- If you're using "master" as default branch -->
 ![Metrics](https://github.com/bryanwills/bryanwills/blob/master/github-metrics.svg)
 <!-- If you're using "main" as default branch -->
