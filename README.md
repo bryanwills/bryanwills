@@ -9,18 +9,9 @@
 [![Codesandbox Badge](https://img.shields.io/badge/CodeSandbox-black?style=for-the-badge&logo=codesandbox&logoColor=white)](https://codesandbox.io/u/bryanwills)
 [![Spotify Badge](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/user/acondiff)
 
-<div class="years" style="font-size: 20px;"> Github Member for
-[![Years Badge](https://badges.pufler.dev/years/bryanwills)](https://badges.pufler.dev) <br>
-
-<div class="years" style="font-size: 20px;"> Unique [![Visits Badge](https://badges.pufler.dev/visits/bryanwills/bryanwills)](https://bryanwills.dev)<br>
-
-<div class="years" style="font-size: 20px;"> Number of repos forked or created: 
+[![Years Badge](https://badges.pufler.dev/years/bryanwills)(https://badges.pufler.dev) <br>
+[![Visits Badge](https://badges.pufler.dev/visits/bryanwills/bryanwills)](https://bryanwills.dev)<br>
 [![Repos Badge](https://badges.pufler.dev/repos/bryanwills)](https://badges.pufler.dev)
-
-
-
-
-
 
 
 ## `👋` Hello, there! 
