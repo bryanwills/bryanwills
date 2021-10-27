@@ -16,7 +16,7 @@
 
 ## `👋` Hello, there! 
 
-I’m Bryan, a senior creative UI engineer specializing in front-end development. My goal is to create beautiful user-centric designs and translate them into pixel-perfect performant websites or applications. I strive to write scalable maintanable and readable code keeping future developers in mind.
+I’m Bryan, a Front End Web Developer.
 
 Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 
