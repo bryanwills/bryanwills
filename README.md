@@ -60,11 +60,11 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
   <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=58a6ff&bg_color=161b22" alt="Bryan's GitHub Stats" />
 </a>
 
-![Metrics](https://metrics.lecoq.io/bryanwills)
+[![Metrics](https://metrics.lecoq.io/bryanwills)]
 <!--If you're using "master" as default branch -->
-![Metrics](https://github.com/bryanwills/bryanwills/blob/master/github-metrics.svg)-->
+[![Metrics](https://github.com/bryanwills/bryanwills/blob/master/github-metrics.svg)]
 <!-- If you're using "main" as default branch -->
-![Metrics](https://github.com/bryanwills/bryanwills/blob/main/github-metrics.svg)
+[![Metrics](https://github.com/bryanwills/bryanwills/blob/main/github-metrics.svg)]
 
 <!--
 **bryanwills/bryanwills** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
