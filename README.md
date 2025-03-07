@@ -13,10 +13,9 @@
 [![Visits Badge](https://badges.pufler.dev/visits/bryanwills)]<br>
 [![Repos Badge](https://badges.pufler.dev/repos/bryanwills)] -->
 
-
 ## `👋` Hello, there!
 
-I’m Bryan, a Front End Web Developer.
+I’m Bryan, a Developer. 👨 💻 Developer | 🚀 Building cool stuff
 
 Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 
@@ -28,8 +27,7 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
   </a>
 </div>
 
-# Bryan Wills
-👨💻 Developer | 🚀 Building cool stuff
+
 
 
 ### Code
