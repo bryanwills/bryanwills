@@ -74,9 +74,9 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
     <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=bryanwills&count_private=true&theme=radical" alt="bryanwills" /></div>
 </div>
 
-{/* <a href="https://github.com/bryanwills">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=58a6ff&bg_color=161b22" alt="Bryan's GitHub Stats" />
-</a> */}
+<!-- <a href="https://github.com/bryanwills" -->
+<!-- <img align="center" style="margin:0.5rem" -->
+<!-- src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=58a6ff&bg_color=161b22" alt="Bryan's GitHub Stats" /></a> -->
 
 
 <!-- [![Metrics](https://metrics.lecoq.io/bryanwills)]
