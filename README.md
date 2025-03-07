@@ -19,7 +19,7 @@
 I’m Bryan 👨 , a Developer 💻 | 🚀 Building cool stuff
 
 Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
-
+<br>
 
 
 <div align="center">
@@ -39,6 +39,9 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 [![](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=black)](https://webpack.js.org/)
 [![](https://img.shields.io/badge/Gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=white)](https://www.gatsbyjs.com/)
 [![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/bryanwills/coin-dashboard)
+
 
 ### Style
 
@@ -63,8 +66,17 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 <br>
 
 <a href="https://github.com/bryanwills">
+  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&theme=radical" alt="Bryan's GitHub Stats" />
+
+</a><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=bryanwills&count_private=true&theme=radical" alt="bryanwills" />
+
+<div style="flex: 33.33%; padding: 5px;">
+    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=bryanwills&count_private=true&theme=radical" alt="bryanwills" /></div>
+</div>
+
+{/* <a href="https://github.com/bryanwills">
   <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=58a6ff&bg_color=161b22" alt="Bryan's GitHub Stats" />
-</a>
+</a> */}
 
 
 <!-- [![Metrics](https://metrics.lecoq.io/bryanwills)]
