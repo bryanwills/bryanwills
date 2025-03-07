@@ -68,11 +68,11 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 <a href="https://github.com/bryanwills">
   <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&theme=radical" alt="Bryan's GitHub Stats" />
 
-</a><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=bryanwills&count_private=true&theme=radical" alt="bryanwills" />
+<!-- /a><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=bryanwills&count_private=true&theme=radical" alt="bryanwills" /> -->
 
-<div style="flex: 33.33%; padding: 5px;">
-    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=bryanwills&count_private=true&theme=radical" alt="bryanwills" /></div>
-</div>
+<!-- <div style="flex: 33.33%; padding: 5px;"> -->
+<!-- <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=bryanwills&count_private=true&theme=radical" alt="bryanwills" /></div> -->
+<!-- </div> -->
 
 <!-- <a href="https://github.com/bryanwills" -->
 <!-- <img align="center" style="margin:0.5rem" -->
