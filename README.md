@@ -1,3 +1,4 @@
+## `📱` Social Connections
 <!--[![Bryan's GitHub Profile Header](./assets/GitHubHeader.jpg)](https://bryanwills.dev)-->
 
 [![Twitter Badge](https://img.shields.io/badge/Twitter-1CA2F1?style=for-the-badge&logo=twitter&logoColor=white)](https://codesandbox.com/bryanwills)
@@ -15,11 +16,11 @@
 
 ## `👋` Hello, there!
 
-I’m Bryan, a Developer. 👨 💻 Developer | 🚀 Building cool stuff
+I’m Bryan 👨 , a Developer 💻 | 🚀 Building cool stuff
 
 Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 
-## `💪🏻` Skills
+
 
 <div align="center">
   <a href="https://www.buymeacoffee.com/bryanwills">
@@ -27,8 +28,7 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
   </a>
 </div>
 
-
-
+## `💪🏻` Skills
 
 ### Code
 
