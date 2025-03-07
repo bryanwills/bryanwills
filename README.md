@@ -22,6 +22,16 @@ Want to know more about me? [Check out my portfolio.](https://bryanwills.dev/)
 
 ## `💪🏻` Skills
 
+<div align="center">
+  <a href="https://www.buymeacoffee.com/bryanwills">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+  </a>
+</div>
+
+# Bryan Wills
+👨💻 Developer | 🚀 Building cool stuff
+
+
 ### Code
 
 [![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
