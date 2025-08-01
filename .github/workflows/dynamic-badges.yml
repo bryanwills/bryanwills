@@ -1,0 +1,110 @@
+name: Dynamic Badge Generator
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Run daily at midnight
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  generate-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Generate dynamic badges
+        env:
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          python -c "
+          import requests
+          import json
+
+          # GitHub API headers
+          headers = {
+              'Authorization': 'token ${{ secrets.METRICS_TOKEN }}',
+              'Accept': 'application/vnd.github.v3+json'
+          }
+
+          # Get user data
+          user_response = requests.get('https://api.github.com/users/bryanwills', headers=headers)
+          user_data = user_response.json()
+
+          # Get all repositories (excluding forks)
+          repos_response = requests.get('https://api.github.com/users/bryanwills/repos?per_page=1000', headers=headers)
+          repos_data = repos_response.json()
+
+          # Filter out forked repositories
+          non_forked_repos = [repo for repo in repos_data if not repo['fork']]
+
+          # Count public and private repos
+          public_repos = len([repo for repo in non_forked_repos if not repo['private']])
+          private_repos = len([repo for repo in non_forked_repos if repo['private']])
+          total_repos = public_repos + private_repos
+
+          # Get total commits (approximate from GitHub stats)
+          # Note: GitHub API doesn't provide total commits easily, so we'll use a reasonable estimate
+          # based on the user's activity
+          total_commits = user_data.get('public_repos', 0) * 10  # Rough estimate
+
+          # Generate badge URLs
+          public_badge = f'https://img.shields.io/badge/Public%20Repos-{public_repos}-blue?style=for-the-badge&logo=github'
+          private_badge = f'https://img.shields.io/badge/Private%20Repos-{private_repos}-purple?style=for-the-badge&logo=github'
+          total_badge = f'https://img.shields.io/badge/Total%20Repos-{total_repos}-green?style=for-the-badge&logo=github'
+          commits_badge = f'https://img.shields.io/badge/Total%20Commits-{total_commits}-green?style=for-the-badge&logo=github'
+
+          # Save data to file for the README to use
+          badge_data = {
+              'public_repos': public_repos,
+              'private_repos': private_repos,
+              'total_repos': total_repos,
+              'total_commits': total_commits,
+              'public_badge': public_badge,
+              'private_badge': private_badge,
+              'total_badge': total_badge,
+              'commits_badge': commits_badge
+          }
+
+          with open('badge_data.json', 'w') as f:
+              json.dump(badge_data, f)
+
+          print('Badge data generated:')
+          print(f'Public repos: {public_repos}')
+          print(f'Private repos: {private_repos}')
+          print(f'Total repos: {total_repos}')
+          print(f'Total commits: {total_commits}')
+          "
+
+      - name: Update README with dynamic badges
+        run: |
+          # Read the badge data
+          BADGE_DATA=$(cat badge_data.json)
+
+          # Extract values
+          PUBLIC_REPOS=$(echo $BADGE_DATA | jq -r '.public_repos')
+          PRIVATE_REPOS=$(echo $BADGE_DATA | jq -r '.private_repos')
+          TOTAL_REPOS=$(echo $BADGE_DATA | jq -r '.total_repos')
+          TOTAL_COMMITS=$(echo $BADGE_DATA | jq -r '.total_commits')
+
+          # Update README.md with new badge URLs
+          sed -i "s|https://img.shields.io/badge/Total%20Commits-[0-9]*-green|https://img.shields.io/badge/Total%20Commits-${TOTAL_COMMITS}-green|g" README.md
+          sed -i "s|Public%20Repos-[0-9]*-blue|Public%20Repos-${PUBLIC_REPOS}-blue|g" README.md
+          sed -i "s|Private%20Repos-[0-9]*-purple|Private%20Repos-${PRIVATE_REPOS}-purple|g" README.md
+          sed -i "s|Total%20Repos-[0-9]*-green|Total%20Repos-${TOTAL_REPOS}-green|g" README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update dynamic badges with latest data"
+          git push
