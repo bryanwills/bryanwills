@@ -55,32 +55,35 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
     <img width="400px" src="https://github-readme-stats.vercel.app/api?username=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&theme=radical" alt="Bryan's GitHub Stats" />
   </a>
 </div>
-<div align="center" style="margin-top: 40px;">
+
+<br><br>
+
+<div align="center">
   <a href="https://github.com/bryanwills">
     <img width="400px" src="https://github-readme-streak-stats.herokuapp.com/?user=bryanwills&hide_border=true&show_icons=true&line_height=28&count_private=true&theme=radical" alt="Bryan's GitHub Streak" />
   </a>
 </div>
 
 <!-- Top Languages - Made larger -->
-<div align="center" style="margin-top: 40px; margin-bottom: 40px;">
+<br><br>
+
+<div align="center">
   <a href="https://github.com/bryanwills">
     <img width="400px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bryanwills&layout=compact&hide_border=true&show_icons=true&line_height=28&count_private=true&theme=radical" alt="Bryan's Top Languages" />
   </a>
 </div>
 
 <!-- Custom Contribution Graph - Full width -->
-<div align="center" style="margin-bottom: 40px;">
+<br><br>
+
+<div align="center">
   <a href="https://github.com/bryanwills">
     <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=bryanwills&theme=radical&hide_border=true" alt="Bryan's Contribution Graph" />
   </a>
 </div>
 
-<!-- GitHub Metrics (will appear after workflow runs) -->
-<!-- <div align="center">
-  <a href="https://github.com/bryanwills">
-    <img width="100%" src="https://github.com/bryanwills/bryanwills/blob/main/github-metrics.svg" alt="Bryan's GitHub Metrics" />
-  </a>
-</div> -->
+<!-- GitHub Metrics (removed due to SVG generation issues) -->
+<!-- Alternative: We can add more detailed stats using different services later -->
 
 <!--
 **bryanwills/bryanwills** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
