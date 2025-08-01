@@ -78,7 +78,7 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
 
 <div align="center">
   <a href="https://github.com/bryanwills">
-    <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=bryanwills&theme=radical&hide_border=true" alt="Bryan's Contribution Graph" />
+    <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=bryanwills&theme=github-dark&hide_border=true" alt="Bryan's Contribution Graph" />
   </a>
 </div>
 
