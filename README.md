@@ -82,6 +82,21 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
   </a>
 </div>
 
+<!-- Repository Statistics -->
+<br><br>
+
+<div align="center">
+  <a href="https://github.com/bryanwills?tab=repositories">
+    <img src="https://img.shields.io/badge/Public%20Repos-837-blue?style=for-the-badge&logo=github" alt="Public Repositories" />
+  </a>
+  <a href="https://github.com/bryanwills?tab=repositories">
+    <img src="https://img.shields.io/badge/Private%20Repos-16-purple?style=for-the-badge&logo=github" alt="Private Repositories" />
+  </a>
+  <a href="https://github.com/bryanwills?tab=repositories">
+    <img src="https://img.shields.io/badge/Total%20Repos-853-green?style=for-the-badge&logo=github" alt="Total Repositories" />
+  </a>
+</div>
+
 <!-- GitHub Metrics (removed due to SVG generation issues) -->
 <!-- Alternative: We can add more detailed stats using different services later -->
 
