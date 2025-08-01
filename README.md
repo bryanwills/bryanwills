@@ -33,7 +33,22 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
 
 [![](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://svelte.dev/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/t/bryanwills/bryanwills)
+![Total Commits](https://img.shields.io/badge/Total%20Commits-175-green?style=for-the-badge&logo=github)
+
+<!-- Repository Statistics -->
+<br><br>
+
+<div align="center">
+  <a href="https://github.com/bryanwills?tab=repositories">
+    <img src="https://img.shields.io/badge/Public%20Repos-837-blue?style=for-the-badge&logo=github" alt="Public Repositories" />
+  </a>
+  <a href="https://github.com/bryanwills?tab=repositories">
+    <img src="https://img.shields.io/badge/Private%20Repos-16-purple?style=for-the-badge&logo=github" alt="Private Repositories" />
+  </a>
+  <a href="https://github.com/bryanwills?tab=repositories">
+    <img src="https://img.shields.io/badge/Total%20Repos-853-green?style=for-the-badge&logo=github" alt="Total Repositories" />
+  </a>
+</div>
 
 ### Style
 
@@ -79,21 +94,6 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
 <div align="center">
   <a href="https://github.com/bryanwills">
     <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=bryanwills&theme=github-dark&hide_border=true" alt="Bryan's Contribution Graph" />
-  </a>
-</div>
-
-<!-- Repository Statistics -->
-<br><br>
-
-<div align="center">
-  <a href="https://github.com/bryanwills?tab=repositories">
-    <img src="https://img.shields.io/badge/Public%20Repos-837-blue?style=for-the-badge&logo=github" alt="Public Repositories" />
-  </a>
-  <a href="https://github.com/bryanwills?tab=repositories">
-    <img src="https://img.shields.io/badge/Private%20Repos-16-purple?style=for-the-badge&logo=github" alt="Private Repositories" />
-  </a>
-  <a href="https://github.com/bryanwills?tab=repositories">
-    <img src="https://img.shields.io/badge/Total%20Repos-853-green?style=for-the-badge&logo=github" alt="Total Repositories" />
   </a>
 </div>
 
