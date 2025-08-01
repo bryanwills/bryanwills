@@ -36,13 +36,13 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
 <!-- Repository and Commit Statistics -->
 
 <a href="https://github.com/bryanwills?tab=repositories">
-  <img src="https://img.shields.io/badge/Total%20Repos-853-green?style=for-the-badge&logo=github&logoColor=white" alt="Total Repositories" />
+  <img src="https://img.shields.io/badge/Total%20Repos-9-green?style=for-the-badge&logo=github&logoColor=white" alt="Total Repositories" />
 </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/bryanwills?tab=repositories">
-  <img src="https://img.shields.io/badge/Public%20Repos-837-blue?style=for-the-badge&logo=github&logoColor=white" alt="Public Repositories" />
+  <img src="https://img.shields.io/badge/Public%20Repos-9-blue?style=for-the-badge&logo=github&logoColor=white" alt="Public Repositories" />
 </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/bryanwills?tab=repositories">
-  <img src="https://img.shields.io/badge/Private%20Repos-16-purple?style=for-the-badge&logo=github&logoColor=white" alt="Private Repositories" />
+  <img src="https://img.shields.io/badge/Private%20Repos-0-purple?style=for-the-badge&logo=github&logoColor=white" alt="Private Repositories" />
 </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/bryanwills">
-  <img src="https://img.shields.io/badge/Total%20Commits-175-green?style=for-the-badge&logo=github&logoColor=white" alt="Total Commits" />
+  <img src="https://img.shields.io/badge/Total%20Commits-8370-green?style=for-the-badge&logo=github&logoColor=white" alt="Total Commits" />
 </a>
 
 ### Style
