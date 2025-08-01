@@ -1,0 +1,175 @@
+name: Repository Scanner
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"  # Run monthly on the 1st
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  scan-repositories:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Scan repositories for packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          python -c "
+          import requests
+          import json
+          import re
+          from collections import Counter
+
+          # GitHub API headers
+          headers = {
+              'Authorization': 'token ${{ secrets.METRICS_TOKEN }}',
+              'Accept': 'application/vnd.github.v3+json'
+          }
+
+          # Popular packages to detect
+          code_packages = {
+              'next': 'Next.js',
+              'react': 'React',
+              'vue': 'Vue.js',
+              'angular': 'Angular',
+              'svelte': 'Svelte',
+              'astro': 'Astro',
+              'typescript': 'TypeScript',
+              'express': 'Express',
+              'fastapi': 'FastAPI',
+              'django': 'Django',
+              'rails': 'Rails',
+              'go': 'Go',
+              'rust': 'Rust'
+          }
+
+          style_packages = {
+              'tailwindcss': 'Tailwind CSS',
+              'shadcn': 'ShadCN',
+              'lucide': 'Lucide',
+              'material-ui': 'Material-UI',
+              'styled-components': 'Styled Components',
+              'sass': 'Sass',
+              'less': 'Less',
+              'framer-motion': 'Framer Motion',
+              'react-spring': 'React Spring'
+          }
+
+          tool_packages = {
+              'pnpm': 'pnpm',
+              'yarn': 'Yarn',
+              'bun': 'Bun',
+              'vite': 'Vite',
+              'webpack': 'Webpack',
+              'rollup': 'Rollup',
+              'parcel': 'Parcel',
+              'eslint': 'ESLint',
+              'prettier': 'Prettier',
+              'husky': 'Husky',
+              'docker': 'Docker',
+              'kubernetes': 'Kubernetes'
+          }
+
+          # Get all repositories
+          repos_response = requests.get('https://api.github.com/users/bryanwills/repos?per_page=1000', headers=headers)
+          repos_data = repos_response.json()
+
+          # Filter out forked repositories
+          non_forked_repos = [repo for repo in repos_data if not repo['fork']]
+
+          # Counters for package usage
+          code_counter = Counter()
+          style_counter = Counter()
+          tool_counter = Counter()
+
+          # Scan each repository
+          for repo in non_forked_repos:
+              try:
+                  # Get package.json files
+                  package_files = requests.get(f'https://api.github.com/search/code?q=repo:{repo[\"full_name\"]}+filename:package.json', headers=headers)
+                  package_data = package_files.json()
+
+                  for item in package_data.get('items', []):
+                      # Get file content
+                      file_response = requests.get(item['url'], headers=headers)
+                      file_data = file_response.json()
+
+                      # Decode content
+                      import base64
+                      content = base64.b64decode(file_data['content']).decode('utf-8')
+
+                      # Parse package.json
+                      try:
+                          package_json = json.loads(content)
+                          dependencies = package_json.get('dependencies', {})
+                          dev_dependencies = package_json.get('devDependencies', {})
+                          all_deps = {**dependencies, **dev_dependencies}
+
+                          # Check for code packages
+                          for pkg, name in code_packages.items():
+                              if pkg in all_deps:
+                                  code_counter[name] += 1
+
+                          # Check for style packages
+                          for pkg, name in style_packages.items():
+                              if pkg in all_deps:
+                                  style_counter[name] += 1
+
+                          # Check for tool packages
+                          for pkg, name in tool_packages.items():
+                              if pkg in all_deps:
+                                  tool_counter[name] += 1
+
+                      except json.JSONDecodeError:
+                          continue
+
+              except Exception as e:
+                  print(f'Error scanning {repo[\"name\"]}: {e}')
+                  continue
+
+          # Generate badge data
+          badge_data = {
+              'code_packages': dict(code_counter.most_common(5)),
+              'style_packages': dict(style_counter.most_common(5)),
+              'tool_packages': dict(tool_counter.most_common(5))
+          }
+
+          with open('package_scan_results.json', 'w') as f:
+              json.dump(badge_data, f)
+
+          print('Package scan results:')
+          print(f'Code packages: {dict(code_counter.most_common(5))}')
+          print(f'Style packages: {dict(style_counter.most_common(5))}')
+          print(f'Tool packages: {dict(tool_counter.most_common(5))}')
+          "
+
+      - name: Generate badges from scan results
+        run: |
+          # Read scan results
+          SCAN_DATA=$(cat package_scan_results.json)
+
+          # Generate badge URLs for frequently used packages
+          echo "Generating badges for frequently used packages..."
+
+          # This will be used to update the README with new badges
+          # For now, we'll just log the results
+          echo "Scan completed. Check package_scan_results.json for details."
+
+      - name: Commit scan results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add package_scan_results.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update package scan results"
+          git push

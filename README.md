@@ -36,13 +36,13 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
 <!-- Repository and Commit Statistics -->
 
 <a href="https://github.com/bryanwills?tab=repositories">
-  <img src="https://img.shields.io/badge/Total%20Repos-853-green?style=for-the-badge&logo=github" alt="Total Repositories" />
+  <img src="https://img.shields.io/badge/Total%20Repos-853-green?style=for-the-badge&logo=github&logoColor=white" alt="Total Repositories" />
 </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/bryanwills?tab=repositories">
-  <img src="https://img.shields.io/badge/Public%20Repos-837-blue?style=for-the-badge&logo=github" alt="Public Repositories" />
+  <img src="https://img.shields.io/badge/Public%20Repos-837-blue?style=for-the-badge&logo=github&logoColor=white" alt="Public Repositories" />
 </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/bryanwills?tab=repositories">
-  <img src="https://img.shields.io/badge/Private%20Repos-16-purple?style=for-the-badge&logo=github" alt="Private Repositories" />
+  <img src="https://img.shields.io/badge/Private%20Repos-16-purple?style=for-the-badge&logo=github&logoColor=white" alt="Private Repositories" />
 </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/bryanwills">
-  <img src="https://img.shields.io/badge/Total%20Commits-175-green?style=for-the-badge&logo=github" alt="Total Commits" />
+  <img src="https://img.shields.io/badge/Total%20Commits-175-green?style=for-the-badge&logo=github&logoColor=white" alt="Total Commits" />
 </a>
 
 ### Style
@@ -51,7 +51,7 @@ I'm the founder of [Big Brain Coding](https://bigbraincoding.com), a web develop
 
 ### Tools
 
-[![](https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=Storybook&logoColor=white)](https://storybook.js.org/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/)
+[![](https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=Storybook&logoColor=white)](https://storybook.js.org/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
 [![](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=GitLab&logoColor=white)](https://about.gitlab.com/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Bitbucket-0052CC?style=for-the-badge&logo=Bitbucket&logoColor=white)](https://bitbucket.org/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white)](https://vercel.com/)&nbsp;&nbsp;&nbsp;&nbsp;[![](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://www.netlify.com/)
 
