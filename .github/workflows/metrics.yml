@@ -1,0 +1,21 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub username
+          user: bryanwills
+          # GitHub token (optional, for private repos)
+          token: ${{ secrets.METRICS_TOKEN }}
+          # Options
+          base: ""
+          filename: github-metrics.svg
