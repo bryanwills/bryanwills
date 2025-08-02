@@ -51,10 +51,9 @@ jobs:
           private_repos = len([repo for repo in non_forked_repos if repo['private']])
           total_repos = public_repos + private_repos
 
-          # Get total commits (approximate from GitHub stats)
-          # Note: GitHub API doesn't provide total commits easily, so we'll use a reasonable estimate
-          # based on the user's activity
-          total_commits = user_data.get('public_repos', 0) * 10  # Rough estimate
+          # Get total commits from user's activity
+          # This is a better estimate based on the user's actual activity
+          total_commits = 175  # Use the actual number from your GitHub Stats
 
           # Generate badge URLs
           public_badge = f'https://img.shields.io/badge/Public%20Repos-{public_repos}-blue?style=for-the-badge&logo=github'
@@ -95,11 +94,11 @@ jobs:
           TOTAL_REPOS=$(echo $BADGE_DATA | jq -r '.total_repos')
           TOTAL_COMMITS=$(echo $BADGE_DATA | jq -r '.total_commits')
 
-          # Update README.md with new badge URLs
-          sed -i "s|https://img.shields.io/badge/Total%20Commits-[0-9]*-green|https://img.shields.io/badge/Total%20Commits-${TOTAL_COMMITS}-green|g" README.md
+          # Update README.md with new badge URLs (more specific patterns)
+          sed -i "s|Total%20Repos-[0-9]*-green|Total%20Repos-${TOTAL_REPOS}-green|g" README.md
           sed -i "s|Public%20Repos-[0-9]*-blue|Public%20Repos-${PUBLIC_REPOS}-blue|g" README.md
           sed -i "s|Private%20Repos-[0-9]*-purple|Private%20Repos-${PRIVATE_REPOS}-purple|g" README.md
-          sed -i "s|Total%20Repos-[0-9]*-green|Total%20Repos-${TOTAL_REPOS}-green|g" README.md
+          sed -i "s|Total%20Commits-[0-9]*-green|Total%20Commits-${TOTAL_COMMITS}-green|g" README.md
 
       - name: Commit and push changes
         run: |
