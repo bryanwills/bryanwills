@@ -37,7 +37,7 @@ jobs:
               'Accept': 'application/vnd.github.v3+json'
           }
 
-          # Popular packages to detect
+                    # Popular packages to detect (expanded list)
           code_packages = {
               'next': 'Next.js',
               'react': 'React',
@@ -46,16 +46,20 @@ jobs:
               'svelte': 'Svelte',
               'astro': 'Astro',
               'typescript': 'TypeScript',
+              'javascript': 'JavaScript',
               'express': 'Express',
               'fastapi': 'FastAPI',
               'django': 'Django',
               'rails': 'Rails',
               'go': 'Go',
-              'rust': 'Rust'
+              'rust': 'Rust',
+              'node': 'Node.js',
+              'python': 'Python'
           }
 
           style_packages = {
               'tailwindcss': 'Tailwind CSS',
+              'tailwind': 'Tailwind CSS',
               'shadcn': 'ShadCN',
               'lucide': 'Lucide',
               'material-ui': 'Material-UI',
@@ -63,7 +67,9 @@ jobs:
               'sass': 'Sass',
               'less': 'Less',
               'framer-motion': 'Framer Motion',
-              'react-spring': 'React Spring'
+              'react-spring': 'React Spring',
+              'css': 'CSS',
+              'scss': 'SCSS'
           }
 
           tool_packages = {
@@ -78,7 +84,9 @@ jobs:
               'prettier': 'Prettier',
               'husky': 'Husky',
               'docker': 'Docker',
-              'kubernetes': 'Kubernetes'
+              'kubernetes': 'Kubernetes',
+              'npm': 'NPM',
+              'git': 'Git'
           }
 
           # Get all repositories
@@ -93,12 +101,18 @@ jobs:
           style_counter = Counter()
           tool_counter = Counter()
 
-          # Scan each repository
+                    # Scan each repository
           for repo in non_forked_repos:
               try:
+                  print(f'Scanning repository: {repo[\"name\"]}')
+
                   # Get package.json files
                   package_files = requests.get(f'https://api.github.com/search/code?q=repo:{repo[\"full_name\"]}+filename:package.json', headers=headers)
                   package_data = package_files.json()
+
+                  if 'items' not in package_data:
+                      print(f'No package.json found in {repo[\"name\"]}')
+                      continue
 
                   for item in package_data.get('items', []):
                       # Get file content
@@ -116,48 +130,64 @@ jobs:
                           dev_dependencies = package_json.get('devDependencies', {})
                           all_deps = {**dependencies, **dev_dependencies}
 
+                          print(f'Found dependencies in {repo[\"name\"]}: {list(all_deps.keys())[:5]}...')
+
                           # Check for code packages
                           for pkg, name in code_packages.items():
                               if pkg in all_deps:
                                   code_counter[name] += 1
+                                  print(f'Found code package: {name}')
 
                           # Check for style packages
                           for pkg, name in style_packages.items():
                               if pkg in all_deps:
                                   style_counter[name] += 1
+                                  print(f'Found style package: {name}')
 
                           # Check for tool packages
                           for pkg, name in tool_packages.items():
                               if pkg in all_deps:
                                   tool_counter[name] += 1
+                                  print(f'Found tool package: {name}')
 
                       except json.JSONDecodeError:
+                          print(f'Invalid JSON in {repo[\"name\"]}')
                           continue
 
               except Exception as e:
                   print(f'Error scanning {repo[\"name\"]}: {e}')
                   continue
 
-          # Generate badge data
+          # Generate badge data (save all detected packages)
           badge_data = {
-              'code_packages': dict(code_counter.most_common(5)),
-              'style_packages': dict(style_counter.most_common(5)),
-              'tool_packages': dict(tool_counter.most_common(5))
+              'code_packages': dict(code_counter),
+              'style_packages': dict(style_counter),
+              'tool_packages': dict(tool_counter)
           }
 
           with open('package_scan_results.json', 'w') as f:
               json.dump(badge_data, f)
 
           print('Package scan results:')
-          print(f'Code packages: {dict(code_counter.most_common(5))}')
-          print(f'Style packages: {dict(style_counter.most_common(5))}')
-          print(f'Tool packages: {dict(tool_counter.most_common(5))}')
-          "
+          print(f'Code packages: {dict(code_counter)}')
+          print(f'Style packages: {dict(style_counter)}')
+          print(f'Tool packages: {dict(tool_counter)}')
+                    "
 
       - name: Generate badges from scan results
         run: |
           # Read scan results
           SCAN_DATA=$(cat package_scan_results.json)
+
+          # Extract frequently used packages (used in 2+ repos)
+          CODE_PACKAGES=$(echo $SCAN_DATA | jq -r '.code_packages | to_entries | map(select(.value >= 2)) | .[].key' 2>/dev/null || echo "")
+          STYLE_PACKAGES=$(echo $SCAN_DATA | jq -r '.style_packages | to_entries | map(select(.value >= 2)) | .[].key' 2>/dev/null || echo "")
+          TOOL_PACKAGES=$(echo $SCAN_DATA | jq -r '.tool_packages | to_entries | map(select(.value >= 2)) | .[].key' 2>/dev/null || echo "")
+
+          echo "Frequently used packages:"
+          echo "Code: $CODE_PACKAGES"
+          echo "Style: $STYLE_PACKAGES"
+          echo "Tools: $TOOL_PACKAGES"
 
           # Generate badge URLs for frequently used packages
           echo "Generating badges for frequently used packages..."
