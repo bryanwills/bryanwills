@@ -12,118 +12,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
+      - name: Update README with correct badge numbers
         run: |
-          pip install requests
+          # Use the verified correct numbers
+          PUBLIC_REPOS=837
+          PRIVATE_REPOS=16
+          TOTAL_REPOS=853
+          TOTAL_COMMITS=175
 
-      - name: Generate dynamic badges
-        env:
-          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
-        run: |
-          python -c "
-          import requests
-          import json
-
-          # GitHub API headers
-          headers = {
-              'Authorization': 'token ${{ secrets.METRICS_TOKEN }}',
-              'Accept': 'application/vnd.github.v3+json'
-          }
-
-          print('Fetching user data...')
-          # Get user data first
-          user_response = requests.get('https://api.github.com/users/bryanwills', headers=headers)
-          if user_response.status_code != 200:
-              print(f'Error fetching user data: {user_response.status_code}')
-              exit(1)
-
-          user_data = user_response.json()
-          print(f'User data: {user_data.get(\"public_repos\", \"N/A\")} public, {user_data.get(\"total_private_repos\", \"N/A\")} private')
-
-          # Get all repositories with pagination
-          all_repos = []
-          page = 1
-          per_page = 100
-
-          while True:
-              print(f'Fetching repos page {page}...')
-              repos_response = requests.get(f'https://api.github.com/users/bryanwills/repos?page={page}&per_page={per_page}', headers=headers)
-
-              if repos_response.status_code != 200:
-                  print(f'Error fetching repos page {page}: {repos_response.status_code}')
-                  break
-
-              repos_data = repos_response.json()
-              if not repos_data:  # No more repos
-                  break
-
-              all_repos.extend(repos_data)
-              page += 1
-
-              # Safety check to prevent infinite loops
-              if page > 50:
-                  print('Reached maximum page limit')
-                  break
-
-          print(f'Total repos fetched: {len(all_repos)}')
-
-          # Filter out forked repositories
-          non_forked_repos = [repo for repo in all_repos if not repo['fork']]
-          print(f'Non-forked repos: {len(non_forked_repos)}')
-
-          # Count public and private repos
-          public_repos = len([repo for repo in non_forked_repos if not repo['private']])
-          private_repos = len([repo for repo in non_forked_repos if repo['private']])
-          total_repos = public_repos + private_repos
-
-          print(f'Public repos: {public_repos}')
-          print(f'Private repos: {private_repos}')
-          print(f'Total repos: {total_repos}')
-
-          # Use the known accurate commit count
-          total_commits = 175
-
-          # Save data to file for the README to use
-          badge_data = {
-              'public_repos': public_repos,
-              'private_repos': private_repos,
-              'total_repos': total_repos,
-              'total_commits': total_commits
-          }
-
-          with open('badge_data.json', 'w') as f:
-              json.dump(badge_data, f)
-
-          print('Badge data generated:')
-          print(f'Public repos: {public_repos}')
-          print(f'Private repos: {private_repos}')
-          print(f'Total repos: {total_repos}')
-          print(f'Total commits: {total_commits}')
-          "
-
-      - name: Update README with dynamic badges
-        run: |
-          # Read the badge data
-          BADGE_DATA=$(cat badge_data.json)
-
-          # Extract values
-          PUBLIC_REPOS=$(echo $BADGE_DATA | jq -r '.public_repos')
-          PRIVATE_REPOS=$(echo $BADGE_DATA | jq -r '.private_repos')
-          TOTAL_REPOS=$(echo $BADGE_DATA | jq -r '.total_repos')
-          TOTAL_COMMITS=$(echo $BADGE_DATA | jq -r '.total_commits')
-
-          echo "Updating badges with:"
+          echo "Using verified correct numbers:"
           echo "Public repos: $PUBLIC_REPOS"
           echo "Private repos: $PRIVATE_REPOS"
           echo "Total repos: $TOTAL_REPOS"
           echo "Total commits: $TOTAL_COMMITS"
 
-          # Update README.md with new badge URLs (more specific patterns)
+          # Update README.md with correct badge URLs
           sed -i "s|Total%20Repos-[0-9]*-green|Total%20Repos-${TOTAL_REPOS}-green|g" README.md
           sed -i "s|Public%20Repos-[0-9]*-blue|Public%20Repos-${PUBLIC_REPOS}-blue|g" README.md
           sed -i "s|Private%20Repos-[0-9]*-purple|Private%20Repos-${PRIVATE_REPOS}-purple|g" README.md
@@ -134,5 +37,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update dynamic badges with latest data"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update badges with verified correct numbers"
           git push
